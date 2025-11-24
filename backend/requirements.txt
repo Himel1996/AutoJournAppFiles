@@ -116,4 +116,4 @@ bs4
 newspaper3k
 traceback2
 rapidfuzz
-gunicorn
+fastapi
