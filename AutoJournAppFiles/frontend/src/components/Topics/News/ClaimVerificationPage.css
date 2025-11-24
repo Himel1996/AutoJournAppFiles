@@ -1,0 +1,144 @@
+.claim-verification-container {
+    display: flex;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .left-panel, .right-panel {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+  }
+  
+  .right-panel {
+    border-right: none;
+    background-color: #f9f9f9;
+  }
+  
+  .left-panel h3, .right-panel h3 {
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  .left-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+  }
+  
+  .left-panel li {
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background-color: #eef1f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .left-panel li:hover {
+    background-color: #d8e3f2;
+  }
+  
+  .left-panel li.selected {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .verify-btn, .article-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .verify-btn {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .verify-btn:hover {
+    background-color: #145ca5;
+  }
+  
+  .article-btn {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  .article-btn:hover {
+    background-color: #cfcfcf;
+  }
+  
+  .article-box {
+    margin-top: 12px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    white-space: pre-wrap;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 0.95em;
+  }
+  
+  .label {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .label-true {
+    color: green;
+  }
+  .label-mostly\ true {
+    color: #4caf50;
+  }
+  .label-half\ true {
+    color: #f57c00;
+  }
+  .label-barely\ true {
+    color: #ff9800;
+  }
+  .label-false {
+    color: red;
+  }
+  .label-pants-on-fire {
+    color: darkred;
+  }
+  .suggest-btn, .apply-btn, .download-btn {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .suggest-btn { background-color: #6a5acd; color: #fff; }
+  .suggest-btn:hover { background-color: #5a4ac0; }
+  
+  .apply-btn { background-color: #2e7d32; color: #fff; }
+  .apply-btn:hover { background-color: #256628; }
+  
+  .download-btn { background-color: #e0e0e0; color: #333; }
+  .download-btn:hover { background-color: #cfcfcf; }
+  
+  .proposal-box {
+    margin-top: 12px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  

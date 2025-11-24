@@ -1,0 +1,35 @@
+.item-container {
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  align-items: center; /* Ensure icons and text are centered vertically */
+  gap: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.item-container:hover {
+  background-color: #e0f0ff; /* Background color on hover */
+}
+
+.item-icon {
+  aspect-ratio: 1;
+  object-fit: cover; /* Better handling of images */
+  width: 24px;
+}
+
+.item-text {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  font-family: Inter, sans-serif;
+  flex: 1;
+  color: #333; /* Ensure the text color is consistent */
+}
+
+/* Optional: Add a style for when the item is selected */
+.item-selected {
+  background-color: #0073e6; /* Change background color when selected */
+  color: #fff; /* Change text color when selected */
+}

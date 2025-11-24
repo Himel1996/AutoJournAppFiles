@@ -1,0 +1,9 @@
+.api-selector-text {
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+  color: #c0c0c0;
+}
+
+.selected {
+  color: #000;
+}

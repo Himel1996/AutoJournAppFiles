@@ -1,0 +1,105 @@
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(224, 224, 224, 1);
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #828282;
+  width: 100%;
+  min-width: 800px;
+  max-width: 970px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar-container:focus-within {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.search-bar-inner {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 16px;
+  color: #333;
+  font-family: Inter, sans-serif;
+}
+
+.search-bar-inner::placeholder {
+  color: #b3b3b3;
+}
+
+button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+@media (max-width: 991px) {
+  .search-bar-container {
+    flex-wrap: wrap;
+  }
+  .search-bar-inner {
+    max-width: 100%;
+  }
+}
+/* Loading overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #0073e6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading message */
+.loading-overlay p {
+  font-size: 16px;
+  color: #333;
+}

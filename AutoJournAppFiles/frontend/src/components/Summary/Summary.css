@@ -1,0 +1,116 @@
+.summary-page {
+  display: flex;
+  width: 1000px;
+  padding-top: 8px;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 150%;
+}
+.topic-area {
+  align-self: start;
+  display: flex;
+  padding-right: 20px;
+  gap: 4px;
+}
+.topic-title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #000;
+  text-overflow: ellipsis;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+}
+.topic {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #828282;
+  text-overflow: ellipsis;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+.summarize-time {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  align-self: start;
+  color: #828282;
+  text-overflow: ellipsis;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+.dropdown-area {
+  align-self: end;
+  display: flex;
+  margin-bottom: 68px;
+  width: 182px;
+  max-width: 100%;
+  flex-direction: column;
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+  text-align: center;
+  justify-content: center;
+  padding: 2px 19px;
+}
+.img {
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 18px;
+}
+.summary-title {
+  color: #000;
+  text-align: center;
+  margin-top: 32px;
+  width: 100%;
+  font:
+    600 18px Inter,
+    sans-serif;
+}
+
+.summary {
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 32px;
+  width: 100%;
+}
+.divider {
+  background-color: #e0e0e0;
+  min-height: 1px;
+  margin-top: 32px;
+  width: 100%;
+}
+.button-area {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.compare-summaries-button {
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: rgba(130, 130, 130, 1);
+}
+.compare-button {
+  height: 45px;
+  width: 182px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0);
+  color: #fff;
+}
+.compare-button:disabled {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.compare-dialog {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 400px;
+}
