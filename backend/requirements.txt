@@ -108,12 +108,12 @@ langchain_community
 keybert
 #collections
 networkx
-openai
-serpapi
+openai==2.8.1
+serpapi==0.1.5
 readability-lxml
 rank_bm25
 bs4
 newspaper3k
 traceback2
 rapidfuzz
-fastapi
+fastapi==0.122.0
