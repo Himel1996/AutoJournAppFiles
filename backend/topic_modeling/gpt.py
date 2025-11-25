@@ -12,7 +12,6 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
-openai.api_key = Config.OPENAI_API_KEY
 load_dotenv()  # Load environment variables from .env file
 api_key = os.getenv("OPENAI_API_KEY_Ahmed")
 
@@ -76,6 +75,11 @@ class GptTopicModeling(TopicModeling):
         Generate topics dynamically using the Mistral model.
         Returns topic probabilities, keywords, topic names, and topic details.
         """
+        import traceback, os
+
+        print("\n===== get_topics() DEBUG START =====", flush=True)
+        print("ENV OPENAI_API_KEY_Ahmed:", repr(os.getenv("OPENAI_API_KEY_Ahmed")), flush=True)
+
         preprocessed_doc = self.preprocess(doc)
         prompt = f"""
         Analyze the following text and provide at least {self.num_topics} most suitable topics for it, along with their percentages and the relevant 15 keywords.
@@ -93,8 +97,13 @@ class GptTopicModeling(TopicModeling):
                 temperature=0.7
             )
             response_text = response.choices[0].message.content.strip()
+            print("RAW RESPONSE:", response_text[:200], "...", flush=True)
+
             cleaned_response = self.clean_response(response_text)
+            print("CLEANED RESPONSE:", cleaned_response[:200], "...", flush=True)
+
             data = self.extract_json(cleaned_response)
+            print("PARSED JSON:", data, flush=True)
 
             if not data:
                 raise ValueError("No valid JSON extracted from model response.")
@@ -104,9 +113,12 @@ class GptTopicModeling(TopicModeling):
             probs = {topic["name"]: topic["percentage"] for topic in topics_and_keywords}
             keywords = {topic["name"]: topic["keywords"] for topic in topics_and_keywords}
 
+            print("===== get_topics() SUCCESS =====", flush=True)
             return probs, keywords, topics, topics_and_keywords
         except Exception as e:
-            print(f"Error in get_topics: {e}")
+            print("\n===== ERROR in get_topics() =====", flush=True)
+            traceback.print_exc()
+            print("===== END ERROR =====\n", flush=True)
             return None, None, None, None
         
     def get_topics_test(self, doc):
