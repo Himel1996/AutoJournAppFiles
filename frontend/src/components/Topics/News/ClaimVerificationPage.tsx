@@ -36,7 +36,7 @@ const ClaimVerificationPage = () => {
   useEffect(() => {
     const fetchClaims = async () => {
       try {
-        const res = await axios.post("http://127.0.0.1:8787/extract-claims", {
+        const res = await axios.post("http://72.62.44.22:8000/extract-claims", {
           article: article,
         });
         setClaims(res.data.claims);
@@ -52,7 +52,7 @@ const ClaimVerificationPage = () => {
     if (!selectedClaim) return;
     try {
       setLoading(true);
-      const res = await axios.post("http://127.0.0.1:8787/verify-claim", {
+      const res = await axios.post("http://72.62.44.22:8000/verify-claim", {
         claim: selectedClaim,
       });
       setVerificationResult(res.data);
@@ -68,7 +68,7 @@ const ClaimVerificationPage = () => {
     if (!selectedClaim || !verificationResult) return;
     try {
       setLoadingProposal(true);
-      const res = await axios.post("http://127.0.0.1:8787/propose-correction", {
+      const res = await axios.post("http://72.62.44.22:8000/propose-correction", {
         claim: selectedClaim,
         label: verificationResult.label,
         summary: verificationResult.summary,
@@ -94,7 +94,7 @@ const ClaimVerificationPage = () => {
     if (!proposedEdit) return;
     try {
       setLoadingApply(true);
-      const res = await axios.post("http://127.0.0.1:8787/apply-edit", {
+      const res = await axios.post("http://72.62.44.22:8000/apply-edit", {
         article,
         target_sentence: proposedEdit.target_sentence,
         corrected_sentence: proposedEdit.corrected_sentence

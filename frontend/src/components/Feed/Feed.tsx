@@ -52,7 +52,7 @@ export function Feed({ setSelectedDialogue, isSearch, setUserTopics }: FeedProps
     const combinedText = conversations.map((conv) => conv.dialogue).join(" ");
   
     try {
-      const response = await fetch(`http://127.0.0.1:8787/topics/${selectedOption}`, {
+      const response = await fetch(`http://72.62.44.22:8000/topics/${selectedOption}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

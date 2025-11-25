@@ -445,7 +445,7 @@ const NewsArticlePage = () => {
 
   //detect echo chambers
   const detectEchoChambers = async () => {
-    const response = await fetch("http://127.0.0.1:8787/echo-chamber", {
+    const response = await fetch("http://72.62.44.22:8000/echo-chamber", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ originalText, allTopics }),
@@ -462,7 +462,7 @@ const NewsArticlePage = () => {
       //const cleaned = highlightedSentences.map(stripHeadings);
       
       //console.log("Cleaned for neutralizer:", cleaned);
-      const response = await fetch("http://127.0.0.1:8787/neutralize-bias", {
+      const response = await fetch("http://72.62.44.22:8000/neutralize-bias", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentences: highlightedSentences }),
@@ -477,7 +477,7 @@ const NewsArticlePage = () => {
   const detectBias = async (): Promise<string[]> => {
     setLoadingBias(true);
     try {
-      const response = await fetch("http://127.0.0.1:8787/detect-bias", {
+      const response = await fetch("http://72.62.44.22:8000/detect-bias", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ article: articleText }),
@@ -515,7 +515,7 @@ const NewsArticlePage = () => {
   const detectBiasTypes = async (sentences: string[]) => {
     setLoadingTypes(true);
     try {
-      const response = await fetch("http://127.0.0.1:8787/bias-type", {
+      const response = await fetch("http://72.62.44.22:8000/bias-type", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentences }),

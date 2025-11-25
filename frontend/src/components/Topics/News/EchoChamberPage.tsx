@@ -59,7 +59,7 @@ const EchoChamberPage = () => {
   useEffect(() => {
     const fetchExtremes = async () => {
       try {
-        const res = await axios.post("http://127.0.0.1:8787/detect-echo-extremes", {
+        const res = await axios.post("http://72.62.44.22:8000/detect-echo-extremes", {
           originalText: originalText,
         });
         setStancePairs(res.data.extremes);
@@ -87,7 +87,7 @@ const EchoChamberPage = () => {
     };
 
     try {
-      const res = await axios.post("http://127.0.0.1:8787/shift-stance", stanceData);
+      const res = await axios.post("http://72.62.44.22:8000/shift-stance", stanceData);
       setAdjustedArticle(res.data.shifted_article);
     } catch (err) {
       console.error("Error shifting stance:", err);

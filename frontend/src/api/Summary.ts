@@ -1,7 +1,7 @@
 import { Samsum } from "../backend-objects/Samsum";
 import axios from 'axios';
 
-const backendUrl = "http://localhost:8787";
+const backendUrl = "http://72.62.44.22:8000";
 
 abstract class Summary {
     conversations: Samsum[];

@@ -16,7 +16,7 @@ const SummaryPopup: React.FC<SummaryPopupProps> = ({ topic, onClose, onSaveMerge
   useEffect(() => {
     const fetchSummaries = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8787/summarize-perspectives", {
+        const response = await fetch("http://72.62.44.22:8000/summarize-perspectives", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ topic }),
@@ -43,7 +43,7 @@ const SummaryPopup: React.FC<SummaryPopupProps> = ({ topic, onClose, onSaveMerge
 
   const handleMerge = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8787/merge-summaries", {
+      const response = await fetch("http://72.62.44.22:8000/merge-summaries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ topic, agree: agreeSummary, disagree: disagreeSummary }),

@@ -6,7 +6,7 @@ import useStore from "../store/store";
 import { APIConstants } from "../constants/APIConstants";
 
 
-const backendUrl = "http://localhost:8787";
+const backendUrl = "http://72.62.44.22:8000/";
 
 const teleAPI = new Telegram();
 const redditAPI = new Reddit();
