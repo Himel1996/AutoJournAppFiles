@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import axios from "axios";
 import "./EchoChamberPage.css";
 import RadarStanceChart from "./RadarStanceChart";
+import { API_BASE_URL } from "../config";
 
 type StancePair = {
   stance_pair: [string, string];
@@ -59,7 +60,7 @@ const EchoChamberPage = () => {
   useEffect(() => {
     const fetchExtremes = async () => {
       try {
-        const res = await axios.post("http://72.62.44.22:8000/detect-echo-extremes", {
+        const res = await axios.post("${API_BASE_URL}/detect-echo-extremes", {
           originalText: originalText,
         });
         setStancePairs(res.data.extremes);
@@ -87,7 +88,7 @@ const EchoChamberPage = () => {
     };
 
     try {
-      const res = await axios.post("http://72.62.44.22:8000/shift-stance", stanceData);
+      const res = await axios.post("${API_BASE_URL}/shift-stance", stanceData);
       setAdjustedArticle(res.data.shifted_article);
     } catch (err) {
       console.error("Error shifting stance:", err);

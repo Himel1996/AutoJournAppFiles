@@ -9,6 +9,7 @@ import CircularLoader from "../common/Loader/CircularLoader";
 import useStore from "../../store/store";
 import { APIConstants } from "../../constants/APIConstants";
 import TopicInputPopup from "../common/TopicInputPopup/TopicInputPopup";
+import { API_BASE_URL } from "../config";
 
 interface FeedProps {
   setSelectedDialogue: React.Dispatch<React.SetStateAction<Samsum | null>>;
@@ -52,7 +53,7 @@ export function Feed({ setSelectedDialogue, isSearch, setUserTopics }: FeedProps
     const combinedText = conversations.map((conv) => conv.dialogue).join(" ");
   
     try {
-      const response = await fetch(`http://72.62.44.22:8000/topics/${selectedOption}`, {
+      const response = await fetch(`${API_BASE_URL}/topics/${selectedOption}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

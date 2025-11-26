@@ -1,6 +1,7 @@
 import { Samsum } from "../backend-objects/Samsum";
+import { API_BASE_URL } from "../config";
 
-const backendUrl = "http://72.62.44.22:8000";
+const backendUrl = API_BASE_URL;
 
 export interface SocialAPI {
     fetchEndpoint: string;
@@ -16,7 +17,7 @@ export class Telegram implements SocialAPI {
     }
 
     async getFeedData(query: string): Promise<[Samsum]> {
-        let result = await fetch(`${backendUrl}${this.fetchEndpoint}?query=${query}`);
+        let result = await fetch(`${backendUrl}${this.fetchEndpoint}?query=${encodeURIComponent(query)}`);
         let resultJson = await result.json();
         return resultJson.conversations.map((item: any) => new Samsum(item.id, item.summary, item.dialogue));
     }
@@ -30,7 +31,7 @@ export class Reddit implements SocialAPI {
     }
 
     async getFeedData(query: string): Promise<[Samsum]> {
-        let result = await fetch(`${backendUrl}${this.fetchEndpoint}?query=${query}`);
+        let result = await fetch(`${backendUrl}${this.fetchEndpoint}?query=${encodeURIComponent(query)}`);
         let resultJson = await result.json();
         return resultJson.conversations.map((item: any) => new Samsum(item.id, item.summary, item.dialogue));
     }

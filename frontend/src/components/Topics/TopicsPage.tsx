@@ -6,6 +6,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import ReactMarkdown from "react-markdown";
 import SummaryPopup from "../SummaryPopup/SummaryPopup";
 import "./TopicsPage.css";
+import { API_BASE_URL } from "../config";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -45,7 +46,7 @@ const TopicsPage = () => {
     const fetchPerspectives = async () => {
       setLoadingPerspectives(true);
       try {
-        const response = await fetch("http://72.62.44.22:8000/topics/Mistral/perspectives");
+        const response = await fetch("${API_BASE_URL}/topics/Mistral/perspectives");
         if (response.ok) {
           const data = await response.json();
           const perspectiveData = data.perspectives || data;
@@ -103,7 +104,7 @@ const TopicsPage = () => {
           style,
         };
 
-        const response = await fetch("http://72.62.44.22:8000/generate-news", {
+        const response = await fetch("${API_BASE_URL}/generate-news", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(requestBody),

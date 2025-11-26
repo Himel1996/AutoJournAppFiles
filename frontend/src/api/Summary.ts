@@ -1,7 +1,8 @@
 import { Samsum } from "../backend-objects/Samsum";
 import axios from 'axios';
+import { API_BASE_URL } from "../config";
 
-const backendUrl = "http://72.62.44.22:8000";
+const backendUrl = API_BASE_URL;
 
 abstract class Summary {
     conversations: Samsum[];

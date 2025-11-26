@@ -9,6 +9,7 @@ import "jspdf-autotable";
 import Chart from "chart.js/auto";
 import html2canvas from "html2canvas";
 import { marked } from "marked";
+import { API_BASE_URL } from "../config";
 //import ForceGraph2D from "react-force-graph-2d";
 
 import * as d3 from "d3";
@@ -445,7 +446,7 @@ const NewsArticlePage = () => {
 
   //detect echo chambers
   const detectEchoChambers = async () => {
-    const response = await fetch("http://72.62.44.22:8000/echo-chamber", {
+    const response = await fetch("${API_BASE_URL}/echo-chamber", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ originalText, allTopics }),
@@ -462,7 +463,7 @@ const NewsArticlePage = () => {
       //const cleaned = highlightedSentences.map(stripHeadings);
       
       //console.log("Cleaned for neutralizer:", cleaned);
-      const response = await fetch("http://72.62.44.22:8000/neutralize-bias", {
+      const response = await fetch("${API_BASE_URL}/neutralize-bias", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentences: highlightedSentences }),
@@ -477,7 +478,7 @@ const NewsArticlePage = () => {
   const detectBias = async (): Promise<string[]> => {
     setLoadingBias(true);
     try {
-      const response = await fetch("http://72.62.44.22:8000/detect-bias", {
+      const response = await fetch("${API_BASE_URL}/detect-bias", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ article: articleText }),
@@ -515,7 +516,7 @@ const NewsArticlePage = () => {
   const detectBiasTypes = async (sentences: string[]) => {
     setLoadingTypes(true);
     try {
-      const response = await fetch("http://72.62.44.22:8000/bias-type", {
+      const response = await fetch("${API_BASE_URL}/bias-type", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentences }),

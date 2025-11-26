@@ -4,9 +4,9 @@ import { Samsum } from "../backend-objects/Samsum";
 import { ConversationSummary, TopicAwareSummary } from "../api/Summary";
 import useStore from "../store/store";
 import { APIConstants } from "../constants/APIConstants";
+import { API_BASE_URL } from "../config";
 
-
-const backendUrl = "http://72.62.44.22:8000/";
+const backendUrl = API_BASE_URL;
 
 const teleAPI = new Telegram();
 const redditAPI = new Reddit();
