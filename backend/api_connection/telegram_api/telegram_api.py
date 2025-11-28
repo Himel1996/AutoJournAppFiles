@@ -40,15 +40,27 @@ class TelegramAPI(SocialAPI):
     async def start_app(self) -> None:
         await self.client.start()
 
-        passkey = config.Config.TELEGRAM_PASSWORD
-        phone = config.Config.TELEGRAM_PHONE_NUMBER
+        # passkey = config.Config.TELEGRAM_PASSWORD
+        # phone = config.Config.TELEGRAM_PHONE_NUMBER
 
-        if not await self.client.is_user_authorized():
-            await self.client.send_code_request(phone)
-        try:
-            await self.client.sign_in(phone, passkey)
-        except Exception:
-            await self.client.sign_in(password=input('Password: '))
+        # if not await self.client.is_user_authorized():
+        #     await self.client.send_code_request(phone)
+        # try:
+        #     await self.client.sign_in(phone, passkey)
+        # except Exception:
+        #     await self.client.sign_in(password=input('Password: '))
+        await self.client.connect()
+
+        if await self.client.is_user_authorized():
+            # Session already valid, nothing else to do
+            return
+
+        # If we get here, the session is missing/invalid. Fail loudly instead of hanging.
+        raise RuntimeError(
+            "Telegram session is not authorized on this server. "
+            "Make sure a valid 'nlp_user.session' file is present in the working directory "
+            "and was created using the same API_ID/API_HASH."
+        )
 
     async def get_messages_from_channel(self, channel_name: str, limit=10) -> list[types.Message]:
         messages = []
