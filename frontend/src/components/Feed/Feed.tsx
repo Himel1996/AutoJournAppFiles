@@ -82,7 +82,7 @@ export function Feed({ setSelectedDialogue, isSearch, setUserTopics }: FeedProps
 
   const title = "Topic: ";
   let source = `Using ${selectedAPI} API`;
-  const buttonText = "Summarize Text";
+  const buttonText = "Get Topics & Perspectives";
 
   const summarizeText = (selectedOption: string) => {
     if (!conversationResponse) {
