@@ -50,7 +50,7 @@ const TopicInputPopup: React.FC<TopicInputPopupProps> = ({ onClose, onSave }) =>
                 checked={selectedOption === "Mistral"}
                 onChange={handleOptionChange}
               />
-              Dynamic Topic Modelling with GPT-4o
+               Topic Modelling with GPT-4o
             </label>
           </div>
           <div className="popup-actions">
