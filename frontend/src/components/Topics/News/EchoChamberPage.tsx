@@ -60,7 +60,7 @@ const EchoChamberPage = () => {
   useEffect(() => {
     const fetchExtremes = async () => {
       try {
-        const res = await axios.post("${API_BASE_URL}/detect-echo-extremes", {
+        const res = await axios.post(`${API_BASE_URL}/detect-echo-extremes`, {
           originalText: originalText,
         });
         setStancePairs(res.data.extremes);
@@ -88,7 +88,7 @@ const EchoChamberPage = () => {
     };
 
     try {
-      const res = await axios.post("${API_BASE_URL}/shift-stance", stanceData);
+      const res = await axios.post(`${API_BASE_URL}/shift-stance`, stanceData);
       setAdjustedArticle(res.data.shifted_article);
     } catch (err) {
       console.error("Error shifting stance:", err);

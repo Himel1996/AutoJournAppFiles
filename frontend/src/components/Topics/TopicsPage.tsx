@@ -46,7 +46,7 @@ const TopicsPage = () => {
     const fetchPerspectives = async () => {
       setLoadingPerspectives(true);
       try {
-        const response = await fetch("${API_BASE_URL}/topics/Mistral/perspectives");
+        const response = await fetch(`${API_BASE_URL}/topics/Mistral/perspectives`);
         if (response.ok) {
           const data = await response.json();
           const perspectiveData = data.perspectives || data;
@@ -104,7 +104,7 @@ const TopicsPage = () => {
           style,
         };
 
-        const response = await fetch("${API_BASE_URL}/generate-news", {
+        const response = await fetch(`${API_BASE_URL}/generate-news`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(requestBody),

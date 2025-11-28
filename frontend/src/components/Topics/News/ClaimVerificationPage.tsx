@@ -36,7 +36,7 @@ const ClaimVerificationPage = () => {
   useEffect(() => {
     const fetchClaims = async () => {
       try {
-        const res = await axios.post("${API_BASE_URL}/extract-claims", {
+        const res = await axios.post(`${API_BASE_URL}/extract-claims`, {
           article: article,
         });
         setClaims(res.data.claims);
@@ -52,7 +52,7 @@ const ClaimVerificationPage = () => {
     if (!selectedClaim) return;
     try {
       setLoading(true);
-      const res = await axios.post("${API_BASE_URL}/verify-claim", {
+      const res = await axios.post(`${API_BASE_URL}/verify-claim`, {
         claim: selectedClaim,
       });
       setVerificationResult(res.data);
@@ -68,7 +68,7 @@ const ClaimVerificationPage = () => {
     if (!selectedClaim || !verificationResult) return;
     try {
       setLoadingProposal(true);
-      const res = await axios.post("${API_BASE_URL}/propose-correction", {
+      const res = await axios.post(`${API_BASE_URL}/propose-correction`, {
         claim: selectedClaim,
         label: verificationResult.label,
         summary: verificationResult.summary,
@@ -94,7 +94,7 @@ const ClaimVerificationPage = () => {
     if (!proposedEdit) return;
     try {
       setLoadingApply(true);
-      const res = await axios.post("${API_BASE_URL}/apply-edit", {
+      const res = await axios.post(`${API_BASE_URL}/apply-edit`, {
         article,
         target_sentence: proposedEdit.target_sentence,
         corrected_sentence: proposedEdit.corrected_sentence
