@@ -1020,7 +1020,7 @@ const neutralizedArticle = renderNeutralizedArticle();
 
   return (
     <div className="news-article-container">
-      <button
+      {/* <button
         style={{
           position: "absolute",
           right: 20,
@@ -1035,7 +1035,7 @@ const neutralizedArticle = renderNeutralizedArticle();
         onClick={detectEchoChambers}
       >
         Detect Echo Chamber
-      </button>
+      </button> */}
       <div className="news-article-left">
         <div className="scrollable-text-summary">
           <h1>Generated News Article</h1>
@@ -1241,13 +1241,13 @@ const neutralizedArticle = renderNeutralizedArticle();
             ))}
           </ul>
         )}
-        <button
+        {/* <button
           className="echo-chamber-button"
           onClick={handleOpenEchoChamber}
           title="Open Echo Chamber Analysis"
         >
           ➤ EchoChamber
-        </button>
+        </button> */}
       </div>
       
     </div>
